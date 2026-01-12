@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rAyMant</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Ad Script Placement 1 (Header/General) -->
+    <script src="https://pl28448808.effectivegatecpm.com/03/3b/52/033b529bcff4fbc367c67045cb023c5b.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- LED Strip at Top -->
+    <div class="led-strip"></div>
+
+    <!-- Interactive Starfield Background Canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Device Selector Overlay -->
+    <div id="deviceSelector" class="device-selector-overlay">
+        <div class="device-selector-content">
+            <img src="logo.png" alt="rAyMant Logo" class="logo-image">
+            <h1 class="device-selector-title">rAyMant</h1>
+            <p class="device-selector-subtitle">Choose your experience</p>
+            <div class="device-buttons">
+                <button class="device-btn mobile-btn" data-device="mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile</span>
+                </button>
+                <button class="device-btn desktop-btn" data-device="desktop">
+                    <i class="fas fa-desktop"></i>
+                    <span>Desktop</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Layout -->
+    <div id="desktopLayout" class="desktop-layout hidden">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="rAyMant Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">rAyMant</h2>
+            </div>
+            
+            <div class="name-input-section">
+                <div class="input-wrapper">
+                    <input type="text" id="nameInput" class="name-input" placeholder="Enter a name...">
+                    <button id="addNameBtn" class="add-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="names-list-section">
+                <h3 class="section-title">Names List</h3>
+                <div id="namesList" class="names-list">
+                    <!-- Names will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="instagram-section">
+                <a href="https://www.instagram.com/raymant11/" target="_blank" class="instagram-link">
+                    <div class="instagram-frame">
+                        <i class="fab fa-instagram"></i>
+                        <span>Follow rAyMant</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="wheel-container">
+                <canvas id="wheelCanvas"></canvas>
+                <div class="pointer"></div>
+                <button id="spinBtn" class="spin-button">
+                    <i class="fas fa-play"></i>
+                    <span>SPIN</span>
+                </button>
+            </div>
+            <div class="ad-banner" id="adBanner728x90">
+                <!-- Ad Script Placement 2 (Main Banner - 728x90) -->
+                <script> 
+                atOptions = { 
+                    'key' : 'd5921e596f5ad84c2968738f36afc6a9', 
+                    'format' : 'iframe', 
+                    'height' : 90, 
+                    'width' : 728, 
+                    'params' : {} 
+                }; 
+                </script>
+                <script src="https://www.highperformanceformat.com/d5921e596f5ad84c2968738f36afc6a9/invoke.js"></script>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div id="mobileLayout" class="mobile-layout hidden">
+        <div id="mobileNamesView" class="mobile-view active">
+            <div class="mobile-header">
+                <img src="logo.png" alt="rAyMant Logo" class="mobile-logo">
+                <h2 class="mobile-title">rAyMant</h2>
+            </div>
+            
+            <div class="mobile-name-input-section">
+                <div class="input-wrapper">
+                    <input type="text" id="mobileNameInput" class="name-input" placeholder="Enter a name...">
+                    <button id="mobileAddNameBtn" class="add-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-names-list-section">
+                <h3 class="section-title">Names List</h3>
+                <div id="mobileNamesList" class="names-list">
+                    <!-- Names will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="mobile-instagram-section">
+                <a href="https://www.instagram.com/raymant11/" target="_blank" class="instagram-link">
+                    <div class="instagram-frame">
+                        <i class="fab fa-instagram"></i>
+                        <span>Follow rAyMant</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="mobileWheelView" class="mobile-view">
+            <div class="mobile-wheel-container">
+                <canvas id="mobileWheelCanvas"></canvas>
+                <div class="pointer"></div>
+                <button id="mobileSpinBtn" class="spin-button">
+                    <i class="fas fa-play"></i>
+                    <span>SPIN</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-nav">
+            <button class="mobile-nav-btn active" data-view="names">
+                <i class="fas fa-list"></i>
+                <span>Names</span>
+            </button>
+            <button class="mobile-nav-btn" data-view="wheel">
+                <i class="fas fa-circle-notch"></i>
+                <span>Wheel</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Winner Popup -->
+    <div id="winnerPopup" class="winner-popup hidden">
+        <div class="winner-content">
+            <div class="winner-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2 class="winner-title">WINNER!</h2>
+            <p class="winner-name" id="winnerName"></p>
+            <button class="close-winner-btn" id="closeWinnerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
